@@ -1,16 +1,27 @@
 <h1>Books</h1>
 
+<table class="books">
+  <thead>
+   <tr>
+   <
+
 <% @books.each do |book| %>
-  <P>Title</P>
+  本のタイトル</p>
   <span>
     <%=  link_to book.title,  book_path(book.id) %>
   </span>
+  <p>感想<p>
+  <span>
+    <%=  link_to book.body,  book_path(book.id) %>
+  </span>
+
 <% end %>
 
 
 <h2>New book</h2>
 
 <%= form_with model: @book,url: '/books', method: :post do |f| %>
+
 
   <h4>本のタイトル</h4>
   <%= f.text_field :title %>
