@@ -3,12 +3,13 @@
 <% @books.each do |book| %>
   <P>Title</P>
   <span>
-    <%=  link_to book.title, "/books/#{book.id}" %>
+    <%=  link_to book.title,  book_path(book.id) %>
   </span>
 <% end %>
 
 
 <h2>New book</h2>
+
 <%= form_with model: @book,url: '/books', method: :post do |f| %>
 
   <h4>本のタイトル</h4>
@@ -17,7 +18,7 @@
   <h4>感想</h4>
   <%= f.text_area :body %>
 
-  <%= f.submit 'Create Books' %>
+  <%= f.submit 'Create Book' %>
 <% end %>
 
 
